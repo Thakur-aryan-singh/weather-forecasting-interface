@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEATHER FORECASTING MODEL</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body id="body">
+    <div class="container">
+        <h1>WEATHER FORECASTING MODEL</h1>
+        <div class="city-selection">
+            <input type="text" id="search-city" class="city-search" placeholder="Search for a city..." onkeyup="autocompleteSearch()" />
+            <select id="city-dropdown" class="city-dropdown">
+                <option value="" disabled selected>Select a city</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                <option value="Daman and Diu">Daman and Diu</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="National Capital Territory of Delhi">National Capital Territory of Delhi</option>
+                <option value="Puducherry">Puducherry</option>
+            </select>
+            <button onclick="getWeather()" class="get-weather-btn">Get Weather</button>
+        </div>
+        <div id="loading-spinner" class="spinner" style="display: none;"></div>
+        <div id="weather-info" class="weather-info" style="display: none;">
+            <div class="weather-row">
+                <img id="weather-icon" class="weather-icon" src="" alt="Weather Icon">
+                <span class="label">Weather Climate:</span>
+                <span id="weather-climate" class="value"></span>
+            </div>
+            <div class="weather-row">
+                <span class="label">Weather Description:</span>
+                <span id="weather-description" class="value"></span>
+            </div>
+            <div class="weather-row">
+                <span class="label">Temperature:</span>
+                <span id="temperature" class="value"></span>
+            </div>
+            <div class="weather-row">
+                <span class="label">Min Temperature:</span>
+                <span id="min-temperature" class="value"></span>
+            </div>
+            <div class="weather-row">
+                <span class="label">Max Temperature:</span>
+                <span id="max-temperature" class="value"></span>
+            </div>
+            <div class="weather-row">
+                <span class="label">Pressure:</span>
+                <span id="pressure" class="value"></span>
+            </div>
+            <div class="weather-row">
+                <span id="last-updated" class="last-updated"></span>
+            </div>
+            <div class="weather-row">
+                <span id="weather-tip" class="weather-tip"></span>
+            </div>
+        </div>
+        <div id="map" class="map"></div>
+        <p id="error-message" class="error-message"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
